@@ -29,6 +29,7 @@ print x
 ###
 
 # DO NOT CHANGE THE FOLLOWING LINE
+print "\n"
 print "Problem 2 solution follows:"
 
 for t in range(2,11):
@@ -40,6 +41,7 @@ for t in range(2,11):
 ###
 
 # DO NOT CHANGE THE FOLLOWING LINE
+print "\n"
 print "Problem 3 solution follows:"
 
 n = 10
@@ -54,6 +56,7 @@ print "Triangular number", n, "via formula:", n*(n+1)/2
 ###
 
 # DO NOT CHANGE THE FOLLOWING LINE
+print "\n"
 print "Problem 4 solution follows:"
 
 n = 10
@@ -66,19 +69,34 @@ print n, "factorial:", factorial
 ###
 
 # DO NOT CHANGE THE FOLLOWING LINE
+print "\n"
 print "Problem 5 solution follows:"
 
-# ... write your code and comments here (and remove this line)
+n = 10
+for counter in range(n): #execute inner loop 10 times
+    factorial = 1
+    for i in range(1,n+1): #computes n factorial
+        factorial = factorial*i
+    print factorial
+    n=n-1
 
 ###
 ### Problem 6
 ###
 
 # DO NOT CHANGE THE FOLLOWING LINE
+print "\n"
 print "Problem 6 solution follows:"
 
-# ... write your code and comments here (and remove this line)
-
+reciprocal = 1 
+n = 10
+for counter in range(n): #execute inner loop n times
+    factorial = 1.0
+    for i in range(1,n+1): #adds up 1/n!
+        factorial = factorial*i
+    reciprocal = reciprocal + (1/factorial)
+    n=n-1
+print reciprocal
 ###
 ### Collaboration
 ###
@@ -90,6 +108,6 @@ print "Problem 6 solution follows:"
 ### Reflection
 ###
 
-# ... Write how long this assignment took you, including doing all the readings
-# ... and tutorials linked to from the homework page. Did the readings, tutorials,
-# ... and lecture contain everything you needed to complete this assignment?
+# ... The assignment took me around 3 hours. It would have been helpful to get
+# ... some examples of how to use for loops in class before spending so much
+# ... time on the code critique.
