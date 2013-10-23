@@ -1,0 +1,39 @@
+Name: Cameron Casey 
+Evergreen Login: cascam07 
+Computer Science Foundations
+Programming as a Way of Life
+Fall 2013
+Homework 3 
+
+For each problem that requires a written answer, write (or copy-and-paste)
+your answers in this file.  When you are done, you should have replaced all
+the ellipses (the three dots) with your answers.
+
+At the end, you will turn in this file along with your modified
+dna_analysis.py program.
+
+
+Problem 1:
+
+(No answers in this file.)
+
+Problem 2:
+
+GC-content: 0.43029262963 
+
+Problem 3:
+
+When these lines are commented out, attempting to run the program yields an error. This is because the for loop starting on line 39 calls the variables linenum and seq which have now not been previously defined. The error only makes note of linenum being undefined because the program encounters this undefined variable first then ceases to execute. We would get a similar error if we commented out "gc_count = 0" because line 66 performs and increment operation on gc_count which would now be an undefined variable.  
+
+Problem 4:
+
+AT-content: 0.7 
+
+Collaboration:
+
+ No colaborators 
+
+Reflection:
+
+ In this assignment I learned that you can write a python program and call it from outside the interpreter using a command shell. This allows you to call the program like a function to act on a specific file.
+ I would have liked to have had some background on how executing python files from outside the interpreter is done before starting this assignment because I still don't fully understand how the command we were given operates. 
