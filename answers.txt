@@ -61,3 +61,6 @@ Since we don't know the value of N, we should compute our ratios using (A+T+G+C)
 
 Problem 7:
 AT/GC:  1.32234161747
+
+Problem 8:
+moderate GC content

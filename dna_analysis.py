@@ -97,3 +97,9 @@ print 'Sum of A, T, G, C: ', g_count+c_count+a_count+t_count
 print 'Total count: ', total_count
 print 'seq length: ', len(seq)
 print 'AT/GC: ', atgc_content
+if gc_content>0.6:
+    print 'high GC content'
+elif gc_content<0.4:
+    print 'low GC content'
+else:
+    print 'moderate GC content'
