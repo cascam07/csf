@@ -55,12 +55,30 @@ A-count: 7701287
 T-count: 7661547
 
 Problem 6:
-All of the files except for test-small.fastq differed between the sum of A, T, G, and C and the total count/sequence length which were the same in all cases. This is because interspersed between the A, T, G, C characters in the files are a small number of Ns. These Ns get counted as base pairs but are not recognized as any of the 4 expected nucleotides, so we get a discrepancy in the data. These Ns are likely experimental error in the DNA sequencing. A nucleotide that was not definitively identified in the sequencing process would likely be represented by a place holder character like an N.
+All of the files except for test-small.fastq differed between the sum of A, T, 
+G, and C and the total count/sequence length which were the same in all cases. 
+This is because interspersed between the A, T, G, C characters in the files are 
+a small number of Ns. These Ns get counted as base pairs but are not recognized 
+as any of the 4 expected nucleotides, so we get a discrepancy in the data. 
+These Ns are likely experimental error in the DNA sequencing. A nucleotide that
+was not definitively identified in the sequencing process would likely be 
+represented by a place holder character like an N.
 
-Since we don't know the value of N, we should compute our ratios using (A+T+G+C) as the denominator. Otherwise, the AT and GC content ratios will not add up to 1.
+Since we don't know the value of N, we should compute our ratios using (A+T+G+C)
+as the denominator. Otherwise, the AT and GC content ratios will not add up to 
+1.
 
 Problem 7:
 AT/GC:  1.32234161747
 
 Problem 8:
 moderate GC content
+
+Collaboration:
+    ravzac14, schkyl10
+
+Reflection: In this assignment, I learned that when you are writing a program
+that processes data from other files, it's important to format your program so
+that it works with the formatting of the files being manipulated and that your
+program is as specific as possible to avoid having your data influenced by
+other information like stray 'n' characters. 
