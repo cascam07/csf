@@ -61,10 +61,17 @@ def most_recent_poll_row(poll_rows, pollster, state):
     """
     temp_poll = poll_rows
     i=0
-    for poll in temp_poll:
-        i += 1
+    for poll in temp_poll[:]:
         if poll['Pollster'] != pollster:
-            del temp_poll[i-1]
+            del temp_poll[i]
+            i -=1
+        i +=1
+    i=0
+    for poll in temp_poll[:]:
+        if poll['State'] != state:
+            del temp_poll[i]
+            i -=1
+        i +=1
     return temp_poll
         
 
