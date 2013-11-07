@@ -72,7 +72,19 @@ def most_recent_poll_row(poll_rows, pollster, state):
             del temp_poll[i]
             i -=1
         i +=1
-    return temp_poll
+    if len(temp_poll) == 0:
+        return None
+    else:
+        temp_max = "Jan 01 1000" #arbitrary starting comparison date
+        for n in temp_poll: #checks temp_max for most recent date
+            if earlier_date(temp_max, n['Date'])==True:
+                temp_max = n['Date']  #temp_max becomes most recent date
+            else: pass
+        for n in temp_poll:
+            if n['Date'] == temp_max:
+                most_recent_poll = n
+                return most_recent_poll
+            else: continue
         
 
 
