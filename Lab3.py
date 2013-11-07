@@ -1,4 +1,4 @@
-n=9
+n=100
 series = raw_input("sum or fibonacci?: ")
 a = 0
 b = 0
