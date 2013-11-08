@@ -59,20 +59,20 @@ def most_recent_poll_row(poll_rows, pollster, state):
     Given a list of poll data rows, returns the most recent row with the
     specified pollster and state. If no such row exists, returns None.
     """
-    temp_poll = poll_rows
+    temp_poll = poll_rows[:]
     i=0
-    for poll in temp_poll[:]:
+    for poll in temp_poll[:]: #removes all polls with pollsters other than input
         if poll['Pollster'] != pollster:
             del temp_poll[i]
             i -=1
         i +=1
     i=0
-    for poll in temp_poll[:]:
+    for poll in temp_poll[:]: #removes all polls with states other than input
         if poll['State'] != state:
             del temp_poll[i]
             i -=1
         i +=1
-    if len(temp_poll) == 0:
+    if len(temp_poll) == 0: #returns none if no polls meet criteria
         return None
     else:
         temp_max = "Jan 01 1000" #arbitrary starting comparison date
@@ -86,9 +86,6 @@ def most_recent_poll_row(poll_rows, pollster, state):
                 return most_recent_poll
             else: continue
         
-
-
-
 ################################################################################
 # Problem 3: Pollster predictions
 ################################################################################
@@ -98,8 +95,10 @@ def unique_column_values(rows, column_name):
     Given a list of rows and the name of a column (a string), returns a set
     containing all values in that column.
     """
-    #TODO: Implement this function
-    pass
+    result = set()
+    for poll in rows:
+        result.add(poll[column_name])
+    return result  
 
 def pollster_predictions(poll_rows):
     """
