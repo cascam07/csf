@@ -1,4 +1,3 @@
-import time
 def earlier_date(date1, date2):
     """
     Given two da
@@ -39,12 +38,22 @@ def most_recent_poll_row(poll_rows, pollster, state):
                 return most_recent_poll
             else: continue
 
-poll_rows1 = [{"ID":1, "State":"WA", "Pollster":"A", "Date":"Jan 07 2010"},
-              {"ID":2, "State":"WA", "Pollster":"B", "Date":"Mar 21 2010"},
-              {"ID":3, "State":"WA", "Pollster":"A", "Date":"Jan 08 2010"},
-              {"ID":4, "State":"OR", "Pollster":"A", "Date":"Feb 10 2010"},
-              {"ID":5, "State":"WA", "Pollster":"B", "Date":"Feb 10 2010"},
-              {"ID":6, "State":"WA", "Pollster":"B", "Date":"Mar 22 2010"}]
 
-result = most_recent_poll_row(poll_rows1, "B", "OR")
-print result
+def pollster_predictions(poll_rows):
+    """
+    Given a list of poll data rows, returns pollster predictions.
+    """
+    temp = []
+    for i in poll_rows
+    for pollster in poll_rows['Pollster']:
+        for state in poll_rows['State']:
+            temp.append(most_recent_poll_row(poll_rows, pollster, state))
+    return temp
+
+rows1 = [{'State': 'WA', 
+                'Dem': '1.0', 
+                'Rep': '0.1', 
+                'Date': 'Nov 04 2008', 
+                'Pollster': 'PPP'}]
+                
+result = pollster_predictions(rows1)

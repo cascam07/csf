@@ -104,8 +104,9 @@ def pollster_predictions(poll_rows):
     """
     Given a list of poll data rows, returns pollster predictions.
     """
-    #TODO: Implement this function
-    pass
+    for i in pollster:
+        for j in state:
+            most_recent_poll_row(poll_rows, pollster, state)
 
             
 ################################################################################
