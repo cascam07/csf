@@ -1,14 +1,18 @@
 Name: Cameron Casey 
-UW NetID: cascam07 
-CSE 140
-Homework 3: Election prediction
+Evergreen Login: cascam07 
+Programming as a Way of Life
+Homework 5: Election prediction
 
 
 Collaboration:
 
-...
+None
 
 Reflection:
 
-...
-
+This was by far the most challenging assignment we have had so far. I definitely
+felt like my current programming skills were pushed as far as they go in this
+assignment. That being said, I also felt like I learned more doing this homework
+than on any of the previous assignments. I didn't do a very good job of boxing
+my time, as I spent upwards of 9 hours working on this, but I still learned a
+great deal in that extra time spent.
