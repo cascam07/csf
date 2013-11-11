@@ -104,10 +104,28 @@ def pollster_predictions(poll_rows):
     """
     Given a list of poll data rows, returns pollster predictions.
     """
-    for i in pollster:
-        for j in state:
-            most_recent_poll_row(poll_rows, pollster, state)
+    unique_polls = []
+    unique_state = []
+    recent_polls = []
+    for row in poll_rows:
+        pollster_elements = unique_column_values(poll_rows,'Pollster')
+    for i in range(len(pollster_elements)):
+        unique_polls.append(pollster_elements.pop())
+    for row in poll_rows:
+        state_elements = unique_column_values(poll_rows,'State')
+    for i in range(len(state_elements)):
+        unique_state.append(state_elements.pop())
+        
+    return unique_state, unique_polls
 
+"""
+I started by creating lists of the unique polls and unique states for the given
+input. Next I was going to sift out all but the most recent polls for a given
+state. After that I was planning on using nested for loops to apply my state_edge
+function from earlier to each of the dictionaries for each unique state and compile
+them into a dictionary of dictionaries mapping the edge for each state to the
+pollster type.
+"""
             
 ################################################################################
 # Problem 4: Pollster errors
