@@ -59,13 +59,29 @@ def problem_28(n, element):
         if j == element:
             return True
     return False
-            
+
+def problem_50(n):
+    n_copy = n[:]
+    for index in range(1,len(n)):
+        value = n_copy[index]
+        i = index - 1  
+        while i>=0:
+            if value<n_copy[i]:
+                n_copy[i+1] = n_copy[i]
+                n_copy[i] = value
+                i = i - 1             
+            else: break
+    return n_copy
+
+
 result4 = problem_4([0,1,4,7,13,14])
 result10 = problem_10(3,0)
 result16 = problem_16([4, 3, 7, -9, 1])
 result28 = problem_28([1,3,5,6,9,12,16,24],7)
+result50 = problem_50([4,2,9,7,9,3,15,1,8])
 
 #print result4
 #print result10
 #print result16
-print result28
+#print result28
+print result50
