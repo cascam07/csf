@@ -1,6 +1,11 @@
+"""
+SECTION 3.1
+"""
+
 import math
 
-def problem_4(n): #takes a list of integers and finds the largest difference between successive elements
+def problem_4(n): #takes a list of integers and finds the largest difference 
+                    #between successive elements
 
     temp = 0
     #n = [0, 1, 4, 5, 6, 15]
@@ -37,10 +42,11 @@ def problem_16(n): #takes list of numbers and finds minimum value in list
 
 def problem_28(n, element):
     """
-    Takes list of increasing integers and an element in that list. Searches list for that element.
-    Returns True if element is in the list and False otherwise.
+    Takes list of increasing integers and an element in that list. Searches 
+    list for that element. Returns True if element is in the list and False 
+    otherwise.
     """
-    for i in range(int(math.floor(math.log(len(n))/math.log(4)))): #log base 4 of elements in list
+    for i in range(int(math.floor(math.log(len(n))/math.log(4)))):
         a = n[0:(len(n)/4)]      
         b = n[(len(n)/4):(len(n)/2)]
         c = n[(len(n)/2):((3*len(n))/4)]
@@ -84,4 +90,26 @@ result50 = problem_50([4,2,9,7,9,3,15,1,8])
 #print result10
 #print result16
 #print result28
-print result50
+#print result50
+
+"""
+SECTION 3.3
+"""
+
+def problem_2(n):
+    n_copy = n[:]
+    for index in range(1,4):
+        value = n_copy[index]
+        i = index - 1  
+        while i>=0:
+            if value<n_copy[i]:
+                n_copy[i+1] = n_copy[i]
+                n_copy[i] = value
+                i = i - 1             
+            else: break
+    return n_copy
+
+
+result2 = problem_2([4,2,9,7,9,3,15,1,8])
+
+print result2
