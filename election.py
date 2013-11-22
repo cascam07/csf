@@ -157,16 +157,28 @@ def average_error(state_edges_predicted, state_edges_actual):
     Given predicted state edges and actual state edges, returns
     the average error of the prediction.
     """
-    #TODO: Implement this function
-    pass
+    states = [] #list of states that appear in the predicted and actual edges
+    state_pairs = [(i, j) for i in state_edges_predicted for j in state_edges_actual]
+    summation = 0
+    for pairs in state_pairs:
+        if pairs[0] == pairs[1]:
+            states.append(pairs[0])
+        else: continue
+    for state in states:
+        summation += abs(state_edges_predicted[state] - state_edges_actual[state])
+    average = summation/float(len(states))
+    return average
+
 
 def pollster_errors(pollster_predictions, state_edges_actual):
     """
     Given pollster predictions and actual state edges, retuns pollster errors.
     """
-    #TODO: Implement this function
-    pass
-
+    error = {}
+    for pollster in pollster_predictions:
+        for state in pollster_predictions[pollster]:
+            error[pollster]=average_error(pollster_predictions[pollster], state_edges_actual)
+    return error
 
 ################################################################################
 # Problem 5: Pivot a nested dictionary
