@@ -107,17 +107,22 @@ def pollster_predictions(poll_rows):
                     recent_polls.append(most_recent_poll_row(pollsters[row], poll, state))
                 else: continue    
     
-    #return recent_polls
+   
     
     #dict_inner = {row['State']:row_to_edge(row) for row in recent_polls}
     inner_dicts = []
-    
-    for row in recent_polls:
+    dict_outter = {}
+    for pollster in pollster_keys:
         dict_inner = {}
-        dict_inner = {row['State']:row_to_edge(row)}
-        inner_dicts.append(dict_inner)
-    dict_outter = {row['Pollster']:dict_inner for row in recent_polls}
-    return dict_inner, recent_polls #dict_outter, 
+        for row in recent_polls:
+            if row['Pollster']==pollster:
+                dict_inner = {row['State']:row_to_edge(row)}
+                inner_dicts.append(dict_inner)
+            else: continue
+        dict_outter[row['Pollster']]=dict_inner
+        #dict_outter = {row['Pollster']:inner_dicts for row in recent_polls}
+    
+    return dict_outter, recent_polls
     
     
 """
