@@ -106,23 +106,26 @@ def pollster_predictions(poll_rows):
                 if most_recent_poll_row(pollsters[row], poll, state) != None:
                     recent_polls.append(most_recent_poll_row(pollsters[row], poll, state))
                 else: continue    
-    
-   
-    
-    #dict_inner = {row['State']:row_to_edge(row) for row in recent_polls}
+        
     inner_dicts = []
     dict_outter = {}
     for pollster in pollster_keys:
-        dict_inner = {}
+        dict_inner = {row['State']:row_to_edge(row) for row in recent_polls 
+                    if row['Pollster']==pollster}
+        """
         for row in recent_polls:
             if row['Pollster']==pollster:
                 dict_inner = {row['State']:row_to_edge(row)}
                 inner_dicts.append(dict_inner)
             else: continue
-        dict_outter[row['Pollster']]=dict_inner
+        """
+        inner_dicts.append(dict_inner)
+        
+        for i in range(len(inner_dicts)):
+            dict_outter[pollster]=inner_dicts[i]
         #dict_outter = {row['Pollster']:inner_dicts for row in recent_polls}
     
-    return dict_outter, recent_polls
+    return dict_outter
     
     
 """
@@ -161,5 +164,5 @@ rows4 = [
       {'State': 'WA', 'Dem': '1.0', 'Rep': '10.3', 'Date': 'Nov 04 2008', 'Pollster': 'PPP'}]
     #assert pollster_predictions(rows4) == {'PPP': {'WA': 0.9}}                                            
                                                                                                 
-result = pollster_predictions(rows3)
+result = pollster_predictions(rows2)
 print result

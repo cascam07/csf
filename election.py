@@ -101,31 +101,52 @@ def unique_column_values(rows, column_name):
     return result  
 
 def pollster_predictions(poll_rows):
-    """
-    Given a list of poll data rows, returns pollster predictions.
-    """
-    unique_polls = []
+    
+    #Given a list of poll data rows, returns pollster predictions.
+    
+    pollster_keys = [] #unique pollster types "PPP" "IPSOS"
+    sub_pollster=[]
+    pollsters = [] #list of lists. Each sublist represents a pollster with states
     unique_state = []
     recent_polls = []
     for row in poll_rows:
         pollster_elements = unique_column_values(poll_rows,'Pollster')
     for i in range(len(pollster_elements)):
-        unique_polls.append(pollster_elements.pop())
+        pollster_keys.append(pollster_elements.pop())
+        
+    for poll in pollster_keys:
+        pollsters.append(sub_pollster)
+        sub_pollster=[]
+        for row in poll_rows:
+            if row["Pollster"]==poll:
+                sub_pollster.append(row)
+            else: continue
+    del(pollsters[0])
+    pollsters.append(sub_pollster)
+            
     for row in poll_rows:
         state_elements = unique_column_values(poll_rows,'State')
     for i in range(len(state_elements)):
         unique_state.append(state_elements.pop())
         
-    return unique_state, unique_polls
-
-"""
-I started by creating lists of the unique polls and unique states for the given
-input. Next I was going to sift out all but the most recent polls for a given
-state. After that I was planning on using nested for loops to apply my state_edge
-function from earlier to each of the dictionaries for each unique state and compile
-them into a dictionary of dictionaries mapping the edge for each state to the
-pollster type.
-"""
+    
+    for row in range(len(pollsters)): #Filters out all but the most recent polls for each
+        for poll in pollster_keys:    #pollster and state
+            for state in unique_state:
+                if most_recent_poll_row(pollsters[row], poll, state) != None:
+                    recent_polls.append(most_recent_poll_row(pollsters[row], poll, state))
+                else: continue    
+        
+    inner_dicts = []
+    dict_outter = {}
+    for pollster in pollster_keys:
+        dict_inner = {row['State']:row_to_edge(row) for row in recent_polls 
+                    if row['Pollster']==pollster}
+        inner_dicts.append(dict_inner)        
+        for i in range(len(inner_dicts)):
+            dict_outter[pollster]=inner_dicts[i]    
+    
+    return dict_outter
             
 ################################################################################
 # Problem 4: Pollster errors
