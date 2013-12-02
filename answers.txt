@@ -1,84 +1,71 @@
-Name: Cameron Casey 
-Evergreen Login: cascam07 
+Name: ...
+Evergreen Login: ...
 Computer Science Foundations
 Programming as a Way of Life
-Fall 2013
-Homework 3 
+Homework 8
 
 For each problem that requires a written answer, write (or copy-and-paste)
 your answers in this file.  When you are done, you should have replaced all
 the ellipses (the three dots) with your answers.
 
-At the end, you will turn in this file along with your modified
-dna_analysis.py program.
 
-
-Problem 1:
+Problem 1-3:
 
 (No answers in this file.)
 
-Problem 2:
-
-GC-content: 0.43029262963 
-
-Problem 3:
-
-When these lines are commented out, attempting to run the program yields an
-error. This is because the for loop starting on line 39 calls the variables
-linenum and seq which have now not been previously defined. The error only
-makes note of linenum being undefined because the program encounters this
-undefined variable first then ceases to execute. We would get a similar error
-if we commented out "gc_count = 0" because line 66 performs and increment
-operation on gc_count which would now be an undefined variable.  
-
 Problem 4:
 
-AT-content: 0.7 
+Unchanged recommendations: 
+Changed recommendations: 
+
+Problem 5:
+
+Leave the correct one:
+Yes or No 
+
+Reason:
+...
+
+Problem 6:
+
+Graph:
+...
+
+Reason:
+...
+
+Problem 7:
+
+...
+
+Problem 8:
+
+(No answers in this file.)
+
+Problem 9:
+
+...
+
+Problem 10:
+
+...
+
+Problem 11:
+
+...
+
+Problem 12:
+
+...
+
+
 
 Collaboration:
 
- No collaborators 
+...
 
 Reflection:
 
- In this assignment I learned that you can write a python program and call it
- from outside the interpreter using a command shell. This allows you to call
- the program like a function to act on a specific file. I would have liked to
- have had some background on how executing python files from outside the
- interpreter is done before starting this assignment because I still don't fully
- understand how the command we were given operates. 
+...
 
-Problem 5:
-G-count: 5738773
-C-count: 5879128
-A-count: 7701287
-T-count: 7661547
-
-Problem 6:
-All of the files except for test-small.fastq differed between the sum of A, T, 
-G, and C and the total count/sequence length which were the same in all cases. 
-This is because interspersed between the A, T, G, C characters in the files are 
-a small number of Ns. These Ns get counted as base pairs but are not recognized 
-as any of the 4 expected nucleotides, so we get a discrepancy in the data. 
-These Ns are likely experimental error in the DNA sequencing. A nucleotide that
-was not definitively identified in the sequencing process would likely be 
-represented by a place holder character like an N.
-
-Since we don't know the value of N, we should compute our ratios using (A+T+G+C)
-as the denominator. Otherwise, the AT and GC content ratios will not add up to 
-1.
-
-Problem 7:
-AT/GC:  1.32234161747
-
-Problem 8:
-moderate GC content
-
-Collaboration:
-    ravzac14, schkyl10
-
-Reflection: In this assignment, I learned that when you are writing a program
-that processes data from other files, it's important to format your program so
-that it works with the formatting of the files being manipulated and that your
-program is as specific as possible to avoid having your data influenced by
-other information like stray 'n' characters. 
+(Don't forget to complete the time survey!)
