@@ -1,4 +1,4 @@
-# Name: Cameron Casey
+nx# Name: Cameron Casey
 # Evergreen Login: cascam07
 # Computer Science Foundations
 # Programming as a Way of Life
@@ -162,12 +162,29 @@ assert number_of_common_friends_map(practice_graph, "A") == {'D': 2, 'F': 1}
 assert number_of_common_friends_map(rj, "Mercutio") == { 'Benvolio': 1, 'Capulet': 2, 'Friar Laurence': 1, 'Juliet': 1, 'Montague': 2 }
 
 
-def number_map_to_sorted_list(map):
+def number_map_to_sorted_list(map1):
     """Given a map whose values are numbers, return a list of the keys.
     The keys are sorted by the number they map to, from greatest to least.
     When two keys map to the same number, the keys are sorted by their
     natural sort order, from least to greatest."""
-    print "To be implemented"
+    
+    sorted_list = []
+    number_sort = []
+    temp = []
+    for i in map1:
+        number_sort.append(map1[i])
+    number_sort.sort()
+    number_sort.reverse()
+    
+    for i in number_sort:
+        for j in map1:
+            if map1[j] == i:
+                sorted_list.append(j)
+                del map1[j]
+                break
+            else:pass        
+    return sorted_list   
+        
 
 assert number_map_to_sorted_list({"a":5, "b":2, "c":7, "d":5, "e":5}) == ['c', 'a', 'd', 'e', 'b']
 

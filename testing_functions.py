@@ -139,7 +139,39 @@ def number_of_common_friends_map(graph, user):
     friends_in_common = {person:len(common_friends(graph,user,person)) for person in users
     if len(common_friends(graph,user,person)) > 0}
     return friends_in_common
+
+def number_map_to_sorted_list(map1):
+    """Given a map whose values are numbers, return a list of the keys.
+    The keys are sorted by the number they map to, from greatest to least.
+    When two keys map to the same number, the keys are sorted by their
+    natural sort order, from least to greatest."""
     
-result = number_of_common_friends_map(practice_graph, 'A')
+    sorted_list = []
+    number_sort = []
+    temp = []
+    for i in map1:
+        number_sort.append(map1[i])
+    number_sort.sort()
+    number_sort.reverse()
+    
+    for i in number_sort:
+        for j in map1:
+            if map1[j] == i:
+                temp.append(j)
+            else:pass    
+        
+        
+        for k in temp:
+            pass        
+            sorted_list.append(k)
+            del map1[k]
+            break
+        temp = []       
+    return sorted_list     
+        
+    
+
+    
+result = number_map_to_sorted_list({"a":5, "b":2, "c":7, "d":5, "e":5})
 print result
 
