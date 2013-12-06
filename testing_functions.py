@@ -145,28 +145,35 @@ def number_map_to_sorted_list(map1):
     The keys are sorted by the number they map to, from greatest to least.
     When two keys map to the same number, the keys are sorted by their
     natural sort order, from least to greatest."""
-    
+
+    tuples = []
     sorted_list = []
-    number_sort = []
-    temp = []
     for i in map1:
-        number_sort.append(map1[i])
-    number_sort.sort()
-    number_sort.reverse()
-    
-    for i in number_sort:
-        for j in map1:
-            if map1[j] == i:
-                temp.append(j)
-            else:pass    
-        
-        
-        for k in temp:
-            pass        
-            sorted_list.append(k)
-            del map1[k]
-            break
-        temp = []       
+        tuples.append((i,map1[i]))
+    sort = 1
+    while sort > 0:
+        sort = 0
+        for x in range(len(tuples)-1,0,-1):
+            if tuples[x][1]>tuples[x-1][1]:
+                temp = tuples[x]
+                tuples[x] = tuples[x-1]
+                tuples[x-1] = temp
+                sort += 1
+            else: pass
+    sort = 1
+    while sort > 0:
+        sort = 0
+        for x in range(len(tuples)-1,0,-1):
+            if tuples[x][1]==tuples[x-1][1]:
+                if tuples[x][0]<tuples[x-1][0]:
+                    temp = tuples[x]
+                    tuples[x] = tuples[x-1]
+                    tuples[x-1] = temp
+                    sort += 1
+                else:pass
+            else: pass
+    for y in tuples:
+        sorted_list.append(y[0])
     return sorted_list     
         
     

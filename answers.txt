@@ -1,5 +1,5 @@
-Name: ...
-Evergreen Login: ...
+Name: Cameron Casey
+Evergreen Login: cascam07
 Computer Science Foundations
 Programming as a Way of Life
 Homework 8
